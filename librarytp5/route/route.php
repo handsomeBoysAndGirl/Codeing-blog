@@ -12,5 +12,5 @@
 use think\facade\Route;
 
 Route::post('/login','index/index/login');
-
+Route::post('/findpwd','index/index/findpwd');
 ?>
