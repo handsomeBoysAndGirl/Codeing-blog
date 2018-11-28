@@ -7,7 +7,10 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Axios from "axios"
 
+Vue.prototype.$axios=Axios
+Axios.defaults.baseURL = "http://127.0.0.1/";
 Vue.config.productionTip = false
 Vue.use(ElementUI)
 

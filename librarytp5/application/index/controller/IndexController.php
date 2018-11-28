@@ -1,6 +1,7 @@
 <?php
 namespace app\index\controller;
 
+use app\index\model\BookModel;
 use app\index\model\GuanliModel;
 use think\App;
 use think\Controller;
@@ -18,20 +19,28 @@ class IndexController extends Controller
     }
 
     //登录
-    public function login() {
-        $username = $this->request->post('username');
-        $pwd = $this->request->post('userpwd');
-        $guanli = new GuanliModel();
-        $res = $guanli->where('name', $username)->field('id,password')->find();
-        if ($res != null) {
-            if ($res['password'] === $pwd) {
-                return 1;
-            }else {
-                return 0;
-            }
-        }else {
-            return 0;
-        }
+//    public function login() {
+//        $username = $this->request->post('username');
+//        $pwd = $this->request->post('userpwd');
+//        $guanli = new GuanliModel();
+//        $res = $guanli->where('name', $username)->field('id,password')->find();
+//        if ($res != null) {
+//            if ($res['password'] === $pwd) {
+//                return 1;
+//            }else {
+//                return 0;
+//            }
+//        }else {
+//            return 0;
+//        }
+//    }
+    //书架管理
+    public function bookrack(){
+        $book=new BookModel();
+        $res = $book->select();
+        return $res;
+
     }
 
 }
+

@@ -16,7 +16,9 @@
         <el-menu-item-group class="elgroup">
           <el-menu-item index="1-1">图书类型管理</el-menu-item>
           <el-menu-item index="1-2">图书逾期管理</el-menu-item>
-          <el-menu-item index="1-3">图书档案管理</el-menu-item>
+          <el-menu-item index="1-3">
+            <router-link :to="{path: Bookrack}">图书档案管理</router-link>
+          </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">
@@ -76,7 +78,17 @@
 
 <script>
 export default {
-  name: 'aside'
+  name: 'aside',
+  data(){
+    return{
+      Bookrack: '/main/bookrack'
+    }
+  },
+  methods:{
+  },
+  components:{
+
+  }
 }
 </script>
 

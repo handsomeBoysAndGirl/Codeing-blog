@@ -21,7 +21,7 @@ return [
     // 密码
     'password'        => '',
     // 端口
-    'hostport'        => '3307',
+    'hostport'        => '3306',
     // 连接dsn
     'dsn'             => '',
     // 数据库连接参数
@@ -41,10 +41,10 @@ return [
     // 指定从服务器序号
     'slave_no'        => '',
     // 自动读取主库数据
-    'read_master'     => false,
-    // 是否严格检查字段是否存在
     'fields_strict'   => true,
     // 数据集返回类型
+    'read_master'     => false,
+    // 是否严格检查字段是否存在
     'resultset_type'  => 'array',
     // 自动写入时间戳字段
     'auto_timestamp'  => false,
