@@ -5,6 +5,7 @@ import Main from '@/components/main'
 import Aside from '@/components/aside'
 import Bookrack from '@/Systemseting/Bookrack.vue'
 import libraryinfo from '@/Systemseting/libraryinfo.vue'
+import borrow from '@/booktrans/borrow.vue'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
         path:'bookrack',
         name:'Bookrack',
         component:Bookrack
+      },
+      {
+        path:'borrow',
+        name:'borrow',
+        component:borrow
       }]
     },
     {

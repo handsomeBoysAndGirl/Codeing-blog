@@ -25,6 +25,9 @@
             <input type="text" class="form-control" v-model="icode" placeholder="请输入验证码" aria-describedby="basic-addon2"/>
             <identify @existCode="getCode"></identify>
           </div>
+          <div class="pwddiv form-group">
+            <router-link to="/findpwd" class="pwd">找回密码</router-link>
+          </div>
           <div class="btndiv form-group">
             <button id="btn" class="btn btn-default" @click='login'>登录</button>
           </div>
@@ -36,6 +39,8 @@
 
 <script>
 import identify from './confirm'
+import axios from 'axios'
+import qs from 'qs'
 export default {
   name: 'login',
   data () {
@@ -49,8 +54,23 @@ export default {
   components: {identify},
   methods: {
     login () {
+      let obj = {
+        username: this.username,
+        userpwd: this.pass
+      }
       if (this.icode.toLowerCase() === this.code.toLowerCase()) {
-        console.log('succes')
+        axios({
+          method: 'post',
+          url: 'http://localhost/login',
+          data: qs.stringify(obj)
+        })
+          .then(res => {
+            if (res.data === 1) {
+              this.$router.push({path: '/main'})
+            } else {
+              alert('账号或密码错误，请重新输入')
+            }
+          })
       } else {
         alert('验证码输入错误')
       }
@@ -110,5 +130,15 @@ export default {
   }
   .input-group .form-control{
     width: 70%;
+  }
+  .pwddiv{
+    text-align: right;
+    margin-right: 15px;
+  }
+  .pwd{
+    color: white;
+  }
+  .btn{
+    width: 120px;
   }
 </style>

@@ -12,6 +12,8 @@
 use think\facade\Route;
 
 Route::post('/login','index/index/login');
+
 Route::get('/bookrack','index/index/bookrack');
+Route::post('/findpwd','index/index/findpwd');
 
 ?>

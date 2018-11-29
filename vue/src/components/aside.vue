@@ -16,9 +16,7 @@
         <el-menu-item-group class="elgroup">
           <el-menu-item index="1-1">图书类型管理</el-menu-item>
           <el-menu-item index="1-2">图书逾期管理</el-menu-item>
-          <el-menu-item index="1-3">
-            <router-link :to="{path: Bookrack}">图书档案管理</router-link>
-          </el-menu-item>
+          <el-menu-item index="1-3">图书档案管理</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
       <el-submenu index="2">
@@ -37,7 +35,7 @@
           <span>图书借还</span>
         </template>
         <el-menu-item-group class="elgroup">
-          <el-menu-item index="3-1">图书借阅</el-menu-item>
+          <el-menu-item index="3-1"><router-link :to="{path:borrow}">图书借阅</router-link></el-menu-item>
           <el-menu-item index="3-2">图书归还</el-menu-item>
         </el-menu-item-group>
       </el-submenu>
@@ -69,7 +67,7 @@
         <el-menu-item-group class="elgroup">
           <el-menu-item index="6-1">图书馆信息</el-menu-item>
           <el-menu-item index="6-2">管理员设置</el-menu-item>
-          <el-menu-item index="6-3">书架管理</el-menu-item>
+          <el-menu-item index="6-3"><router-link :to="{path: Bookrack}">书架管理</router-link></el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
@@ -81,7 +79,8 @@ export default {
   name: 'aside',
   data(){
     return{
-      Bookrack: '/main/bookrack'
+      Bookrack: '/main/bookrack',
+      borrow:'/main/borrow'
     }
   },
   methods:{

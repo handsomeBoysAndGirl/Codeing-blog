@@ -4,6 +4,7 @@
       <el-header>Header</el-header>
       <el-container>
         <Aside></Aside>
+        <hr>
         <el-main>
           <router-view></router-view>
         </el-main>

@@ -42,5 +42,22 @@ class IndexController extends Controller
 
     }
 
+    //找回密码
+    public function findpwd() {
+        $username = $this->request->post('username');
+        $tel = $this->request->post('tel');
+        $guanli = new GuanliModel();
+        $res = $guanli->where('name',$username)->field('id,tel,password')->find();
+        if ($res != null) {
+            if ($res['tel'] === $tel) {
+                return json_encode($res['password']);
+            } else {
+                return json_encode('电话号码输入错误！');
+            }
+        } else {
+            return json_encode('用户不存在！');
+        }
+    }
+
 }
 
